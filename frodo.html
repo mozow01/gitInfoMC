@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Frodo Baggins' website</title>
+  
+    <link rel="stylesheet" href="src/sajatstilus.css">
+
+    <script src="src/tipusok.js"></script>
+
+
+  </head>
+  <body>
+   
+    <div class="cim"><h1>Zsákos Frodó története</h1> </div>
+
+    <div class="szoveg1">
+        <table style="width:600px" >
+            <tr>
+            <td> <img src="img/babo_1.jpg" width="100" style="margin-right: 1cm;"> </td>
+            <td>Volt egyszer egy földbe vájt lyuk, abban élt egy babó. 
+                Nem volt ez a lyuk rút, mocskos, nedves, teli féregmaradékkal, dohszaggal, sem száraz, csupasz, homokos lyuk, ahol 
+                se leülni, sem enni nemigen lehet: ez babólyuk volt, ami egyértelmű a kényelemmel. 
+            </td>
+              
+            </tr>
+          </table> 
+        
+        
+    </div>
+
+    <div class="szoveg1">
+
+
+
+  <h2>Bemeneti lehetőségek:</h2>
+  <p>Számok beolvasása:</p>
+
+<input type="number" id="szamok1[1]" value="0"><br>
+<input type="number" id="szamok1[2]" value="0"><br>
+<input type="number" id="szamok1[3]" value="0"><br>
+<input type="number" id="szamok1[4]" value="0">
+
+<p id="ideIrd[1]"></p>
+<p id="ideIrd[2]"></p>
+<p id="ideIrd[3]"></p>
+<p id="ideIrd[4]"></p>
+
+<script>
+  var szam1 = document.getElementById("szamok1[1]").value;
+    document.getElementById("ideIrd[1]").innerHTML = szam1;
+  var szam2 = document.getElementById("szamok1[2]").value;
+    document.getElementById("ideIrd[2]").innerHTML = szam2;
+  var szam3 = document.getElementById("szamok1[3]").value;
+    document.getElementById("ideIrd[3]").innerHTML = szam3;
+  var szam4 = document.getElementById("szamok1[4]").value;
+    document.getElementById("ideIrd[4]").innerHTML = szam4;
+</script>
+
+
+
+<script>
+  var szamoklista1 = [szam1, szam2, szam3, szam4];
+</script>
+
+
+<p>Átlag:</p>
+<p id="ideIrdAtlag1"></p>
+<p>Szórás:</p>
+<p id="ideIrdSzoras1"></p>
+
+<script>
+  const atlag1 = (Number(szam1) + Number(szam2) + Number(szam3) + Number(szam4))/4;
+    document.getElementById("ideIrdAtlag1").innerHTML = atlag1;
+  const szoras1 = Math.sqrt(((Number(szam1)-atlag1)^2 + (Number(szam2)-atlag1)^2 + (Number(szam3)-atlag1)^2 + (Number(szam4)-atlag1)^2)/4);
+    document.getElementById("ideIrdSzoras1").innerHTML = szoras1;
+</script>
+
+
+
+
+<script>
+  var adataim = {
+    adatok: [Number(szam1), Number(szam2), Number(szam3),  Number(szam4)],
+    atlag: atlag1,
+    szoras: szoras1
+  } 
+</script>
+
+
+<p>Adataim:</p>
+<p id="adataim"></p>
+
+<script>
+  
+const adataimJSON = JSON.stringify(adataim);
+localStorage.setItem("adataimJSON", adataimJSON);
+document.getElementById("adataim").innerHTML = localStorage.getItem("adataimJSON");
+</script>
+
+<!--
+
+-->
+
+
+</div>
+
+
+   
+</body>
+</html>
